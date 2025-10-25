@@ -14,8 +14,9 @@ export default function Technology({ onNavigate }: TechnologyProps) {
             <h1 className="text-5xl font-bold">Technology Staffing</h1>
           </div>
           <p className="text-xl text-blue-100 max-w-3xl leading-relaxed">
-            Connecting innovative companies with exceptional tech talent. From emerging startups to
-            enterprise giants, we understand the rapidly evolving technology landscape.
+            Elite tech recruitment for the digital era. We specialize in placing top-tier developers,
+            architects, and tech leaders across cloud, AI/ML, blockchain, and emerging technologies.
+            From Series A startups to Fortune 500 enterprises, we power innovation through talent.
           </p>
         </div>
       </section>
@@ -28,40 +29,40 @@ export default function Technology({ onNavigate }: TechnologyProps) {
               <Cpu className="w-10 h-10 text-blue-600 mb-4" />
               <h3 className="font-bold text-gray-900 mb-3">Software Engineering</h3>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Full-Stack Developers</li>
-                <li>• Frontend/Backend Engineers</li>
-                <li>• Mobile App Developers</li>
-                <li>• DevOps Engineers</li>
+                <li>• Full-Stack (React, Node.js, Python)</li>
+                <li>• Cloud Native Development</li>
+                <li>• Microservices Architecture</li>
+                <li>• DevOps/Platform Engineering</li>
               </ul>
             </div>
             <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
               <Database className="w-10 h-10 text-blue-600 mb-4" />
               <h3 className="font-bold text-gray-900 mb-3">Data & AI</h3>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Data Scientists</li>
-                <li>• ML Engineers</li>
-                <li>• Data Analysts</li>
-                <li>• AI Specialists</li>
+                <li>• ML/AI Engineers (TensorFlow, PyTorch)</li>
+                <li>• Data Scientists & MLOps</li>
+                <li>• Big Data Engineers</li>
+                <li>• Computer Vision & NLP Specialists</li>
               </ul>
             </div>
             <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
               <Globe className="w-10 h-10 text-blue-600 mb-4" />
-              <h3 className="font-bold text-gray-900 mb-3">Product & Design</h3>
+              <h3 className="font-bold text-gray-900 mb-3">Emerging Tech</h3>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• Product Managers</li>
-                <li>• UX/UI Designers</li>
-                <li>• Product Owners</li>
-                <li>• Scrum Masters</li>
+                <li>• Blockchain Developers</li>
+                <li>• IoT Solutions Architects</li>
+                <li>• AR/VR Engineers</li>
+                <li>• Quantum Computing Researchers</li>
               </ul>
             </div>
             <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
               <Code className="w-10 h-10 text-blue-600 mb-4" />
-              <h3 className="font-bold text-gray-900 mb-3">IT Infrastructure</h3>
+              <h3 className="font-bold text-gray-900 mb-3">Cloud & Security</h3>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• System Administrators</li>
-                <li>• Network Engineers</li>
-                <li>• Security Specialists</li>
-                <li>• Cloud Architects</li>
+                <li>• Cloud Architects (AWS/Azure/GCP)</li>
+                <li>• Security Engineers (AppSec/InfoSec)</li>
+                <li>• Site Reliability Engineers</li>
+                <li>• Kubernetes/Container Specialists</li>
               </ul>
             </div>
           </div>
@@ -72,29 +73,29 @@ export default function Technology({ onNavigate }: TechnologyProps) {
               <div className="flex items-start space-x-4">
                 <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Technical Expertise</h3>
-                  <p className="text-gray-600">Our recruiters have technical backgrounds and understand the skills you need</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Deep Tech Expertise</h3>
+                  <p className="text-gray-600">Our recruiters are former developers and tech leaders who understand your stack and requirements</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Vast Network</h3>
-                  <p className="text-gray-600">Access to passive candidates and tech communities nationwide</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Elite Talent Network</h3>
+                  <p className="text-gray-600">Access to top 5% of tech talent through our AI-powered matching and referral network</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Skills Assessment</h3>
-                  <p className="text-gray-600">Technical screening and coding challenges to verify capabilities</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Advanced Screening</h3>
+                  <p className="text-gray-600">System design interviews, pair programming, and architecture reviews by domain experts</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Fast Placement</h3>
-                  <p className="text-gray-600">Average time-to-hire of just 12 days for tech roles</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Rapid Placement</h3>
+                  <p className="text-gray-600">Average time-to-hire of just 10 days for senior tech roles with 95% offer acceptance</p>
                 </div>
               </div>
             </div>

@@ -3,18 +3,18 @@ import { Upload, Mail, Phone, User, FileText, MapPin } from 'lucide-react';
 export default function Submit() {
   return (
     <div className="min-h-screen pt-20">
-      <section className="bg-gradient-to-br from-orange-900 to-amber-700 text-white py-20">
+      <section className="bg-gradient-to-br from-slate-900 to-indigo-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">Submit Your Resume</h1>
-          <p className="text-xl text-orange-100 max-w-3xl leading-relaxed">
+          <p className="text-xl text-blue-100 max-w-3xl leading-relaxed">
             Join our talent network and get matched with opportunities that align with your skills and career goals.
           </p>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 subsection-dark">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-200">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 lg:p-12 border border-white/10">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -22,11 +22,11 @@ export default function Submit() {
                     First Name *
                   </label>
                   <div className="relative">
-                    <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-300" />
                     <input
                       type="text"
                       required
-                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+                      className="w-full pl-12 pr-4 py-3 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-indigo-500"
                       placeholder="John"
                     />
                   </div>
@@ -36,31 +36,31 @@ export default function Submit() {
                     Last Name *
                   </label>
                   <div className="relative">
-                    <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-300" />
                     <input
                       type="text"
                       required
-                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+                      className="w-full pl-12 pr-4 py-3 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-indigo-500"
                       placeholder="Doe"
                     />
                   </div>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <input
-                    type="email"
-                    required
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
-                    placeholder="john.doe@example.com"
-                  />
+                <div>
+                  <label className="block text-sm font-semibold text-gray-100 mb-2">
+                    Email Address *
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-300" />
+                    <input
+                      type="email"
+                      required
+                      className="w-full pl-12 pr-4 py-3 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-indigo-500"
+                      placeholder="john.doe@example.com"
+                    />
+                  </div>
                 </div>
-              </div>
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -117,13 +117,13 @@ export default function Submit() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-100 mb-2">
                   Upload Resume *
                 </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-orange-500 transition-colors cursor-pointer">
-                  <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600 mb-2">
-                    <span className="text-orange-600 font-semibold">Click to upload</span> or drag and drop
+                <div className="border-2 border-dashed border-white/10 rounded-lg p-8 text-center hover:border-indigo-500 transition-colors cursor-pointer bg-gray-900">
+                  <Upload className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+                  <p className="text-gray-300 mb-2">
+                    <span className="text-indigo-400 font-semibold">Click to upload</span> or drag and drop
                   </p>
                   <p className="text-sm text-gray-500">PDF, DOC, or DOCX (Max 5MB)</p>
                 </div>
@@ -145,12 +145,12 @@ export default function Submit() {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-orange-600 text-white rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+                className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-700 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-800 transition-colors"
               >
                 Submit Application
               </button>
 
-              <p className="text-sm text-gray-500 text-center">
+              <p className="text-sm text-gray-400 text-center">
                 By submitting, you agree to our Terms of Service and Privacy Policy
               </p>
             </form>

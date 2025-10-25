@@ -9,7 +9,7 @@ export default function About({ onNavigate }: AboutProps) {
     <div className="min-h-screen pt-20">
       <section className="bg-gradient-to-br from-slate-900 to-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-bold mb-6">About TalentBridge</h1>
+          <h1 className="text-5xl font-bold mb-6">About Falcrum Technology</h1>
           <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
             For over two decades, we've been connecting exceptional talent with outstanding opportunities,
             building lasting partnerships that drive business success.
@@ -24,7 +24,7 @@ export default function About({ onNavigate }: AboutProps) {
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Founded in 2003, TalentBridge started with a simple mission: to make the hiring
+                  Founded in 2003, Falcrum Technology started with a simple mission: to make the hiring
                   process more human, more effective, and more meaningful for everyone involved.
                 </p>
                 <p>

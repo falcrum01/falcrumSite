@@ -22,6 +22,7 @@ import JobSeekers from './pages/opportunities/JobSeekers';
 import Openings from './pages/opportunities/Openings';
 import Submit from './pages/opportunities/Submit';
 import About from './pages/About';
+import AnimatedPage from './components/AnimatedPage';
 
 function App() {
   const [currentPath, setCurrentPath] = useState('/');
@@ -83,7 +84,17 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation currentPath={currentPath} onNavigate={handleNavigate} />
-      <main>{renderPage()}</main>
+      <main>
+        <AnimatedPage key={currentPath} className="vibrant" palette={
+          currentPath.startsWith('/solutions') ? 'sunset' :
+          currentPath.startsWith('/industry') ? 'edge' :
+          currentPath.startsWith('/insights') ? 'quantum' :
+          currentPath.startsWith('/opportunities') ? 'sunset' :
+          currentPath === '/' ? 'ai' : 'default'
+        }>
+          {renderPage()}
+        </AnimatedPage>
+      </main>
       <Footer onNavigate={handleNavigate} />
     </div>
   );

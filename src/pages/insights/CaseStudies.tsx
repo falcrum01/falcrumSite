@@ -3,27 +3,27 @@ import { Award, Target, TrendingUp } from 'lucide-react';
 export default function CaseStudies() {
   const caseStudies = [
     {
-      company: 'TechVenture Inc.',
-      industry: 'Technology',
-      challenge: 'Needed to scale engineering team from 20 to 100 in 6 months',
-      solution: 'Implemented RPO solution with dedicated recruiters and structured interview process',
-      results: ['Hired 85 engineers in 5 months', 'Reduced time-to-hire by 40%', '95% retention after 1 year'],
+      company: 'AI Scale-Up',
+      industry: 'Artificial Intelligence',
+      challenge: 'Needed to build an elite ML team for a new computer vision product launch',
+      solution: 'Implemented specialized ML talent acquisition strategy with technical screening by AI experts',
+      results: ['Hired 12 ML specialists in 8 weeks', 'First product launch ahead of schedule', '100% retention rate after 1 year'],
       icon: Target
     },
     {
-      company: 'Global Health Systems',
-      industry: 'Healthcare',
-      challenge: 'Critical shortage of specialized nurses across 12 facilities',
-      solution: 'Contract staffing with fast deployment and quality screening',
-      results: ['Filled 150 positions in 3 months', 'Zero compliance issues', '98% satisfaction rating'],
+      company: 'Cloud Platform Corp',
+      industry: 'Cloud Infrastructure',
+      challenge: 'Required complete DevOps transformation team with rare Kubernetes expertise',
+      solution: 'Targeted recruitment campaign in the cloud-native community with hands-on technical assessments',
+      results: ['Built 15-person SRE team in 3 months', 'Platform reliability improved to 99.99%', 'Deployment time reduced by 80%'],
       icon: Award
     },
     {
-      company: 'FinanceFirst Corp',
-      industry: 'Finance',
-      challenge: 'Executive search for new CFO during confidential transition',
-      solution: 'Discrete executive search with market mapping and leadership assessment',
-      results: ['Identified ideal candidate in 6 weeks', 'Seamless transition', 'Strong cultural fit'],
+      company: 'Blockchain Innovators',
+      industry: 'Web3/Blockchain',
+      challenge: 'Urgent need for Solidity developers for DeFi protocol launch',
+      solution: 'Specialized Web3 talent sourcing with smart contract expertise validation',
+      results: ['Secured 8 senior blockchain developers', 'Protocol launched on schedule', '$50M+ in TVL within first month'],
       icon: TrendingUp
     }
   ];

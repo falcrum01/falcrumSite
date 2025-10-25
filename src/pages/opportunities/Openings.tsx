@@ -3,81 +3,82 @@ import { MapPin, Briefcase, DollarSign, Clock } from 'lucide-react';
 export default function Openings() {
   const jobs = [
     {
-      title: 'Senior Software Engineer',
+      title: 'Senior Full Stack Engineer (React/Node.js)',
       company: 'TechCorp',
       location: 'San Francisco, CA',
       type: 'Full-Time',
-      salary: '$150,000 - $180,000',
+      salary: '$160,000 - $220,000',
       posted: '2 days ago'
     },
     {
-      title: 'Registered Nurse - ICU',
-      company: 'City Hospital',
-      location: 'New York, NY',
+      title: 'Machine Learning Engineer',
+      company: 'AI Innovations',
+      location: 'Remote (US)',
       type: 'Full-Time',
-      salary: '$85,000 - $105,000',
-      posted: '1 week ago'
-    },
-    {
-      title: 'Financial Analyst',
-      company: 'Global Finance',
-      location: 'Chicago, IL',
-      type: 'Full-Time',
-      salary: '$75,000 - $95,000',
-      posted: '3 days ago'
-    },
-    {
-      title: 'Manufacturing Manager',
-      company: 'Industrial Solutions',
-      location: 'Detroit, MI',
-      type: 'Full-Time',
-      salary: '$95,000 - $120,000',
-      posted: '5 days ago'
-    },
-    {
-      title: 'Product Manager',
-      company: 'Innovation Labs',
-      location: 'Austin, TX',
-      type: 'Full-Time',
-      salary: '$120,000 - $145,000',
+      salary: '$180,000 - $250,000',
       posted: '1 day ago'
     },
     {
-      title: 'Data Scientist',
-      company: 'Analytics Inc',
+      title: 'Cloud Solutions Architect (AWS)',
+      company: 'CloudTech Systems',
       location: 'Seattle, WA',
-      type: 'Contract',
-      salary: '$130,000 - $160,000',
+      type: 'Full-Time',
+      salary: '$170,000 - $230,000',
+      posted: '3 days ago'
+    },
+    {
+      title: 'Senior DevOps Engineer',
+      company: 'Platform.io',
+      location: 'Austin, TX',
+      type: 'Full-Time',
+      salary: '$150,000 - $200,000',
+      posted: '2 days ago'
+    },
+    {
+      title: 'Blockchain Developer (Solidity)',
+      company: 'Web3 Ventures',
+      location: 'Miami, FL',
+      type: 'Full-Time',
+      salary: '$160,000 - $240,000',
+      posted: '1 day ago'
+    },
+    {
+      title: 'Data Engineering Lead',
+      company: 'DataScale AI',
+      location: 'New York, NY',
+      type: 'Full-Time',
+      salary: '$180,000 - $250,000',
       posted: '4 days ago'
     }
   ];
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="bg-gradient-to-br from-green-900 to-emerald-700 text-white py-20">
+      <section className="bg-gradient-to-br from-slate-900 to-blue-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-bold mb-6">Current Openings</h1>
-          <p className="text-xl text-green-100 max-w-3xl leading-relaxed">
-            Explore our latest job opportunities and take the next step in your career.
+          <h1 className="text-5xl font-bold mb-6">Tech Opportunities</h1>
+          <p className="text-xl text-blue-100 max-w-3xl leading-relaxed">
+            Discover cutting-edge tech roles at innovative companies. From startups to tech giants,
+            find your next opportunity in software, data, cloud, and emerging technologies.
           </p>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 subsection-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <div className="flex flex-col md:flex-row gap-4">
               <input
                 type="text"
                 placeholder="Job title or keyword"
-                className="flex-1 px-6 py-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-green-500"
+                className="flex-1 px-6 py-4 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
               />
               <input
                 type="text"
                 placeholder="Location"
-                className="flex-1 px-6 py-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-green-500"
+                className="flex-1 px-6 py-4 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-blue-500"
               />
-              <button className="px-8 py-4 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors">
+              <button className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-700 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-800 transition-colors">
                 Search
               </button>
             </div>
@@ -87,13 +88,13 @@ export default function Openings() {
             {jobs.map((job, index) => (
               <div
                 key={index}
-                className="bg-white border-2 border-gray-200 hover:border-green-300 rounded-xl p-6 cursor-pointer hover:shadow-lg transition-all"
+                className="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-xl p-6 cursor-pointer hover:shadow-lg transition-all"
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{job.title}</h3>
-                    <p className="text-lg text-gray-700 mb-3">{job.company}</p>
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <h3 className="text-xl font-bold text-gray-100 mb-2">{job.title}</h3>
+                    <p className="text-lg text-gray-300 mb-3">{job.company}</p>
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-400">
                       <div className="flex items-center space-x-2">
                         <MapPin className="w-4 h-4" />
                         <span>{job.location}</span>
@@ -112,7 +113,7 @@ export default function Openings() {
                       </div>
                     </div>
                   </div>
-                  <button className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors whitespace-nowrap">
+                  <button className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-700 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-800 transition-colors whitespace-nowrap">
                     Apply Now
                   </button>
                 </div>

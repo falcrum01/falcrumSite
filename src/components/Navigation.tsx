@@ -66,10 +66,10 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
             onClick={() => onNavigate('/')}
           >
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">T</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-800 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">F</span>
               </div>
-              <span className="text-2xl font-bold text-gray-900">TalentBridge</span>
+              <span className="text-2xl font-bold text-gray-900">Falcrum Technology</span>
             </div>
           </div>
 

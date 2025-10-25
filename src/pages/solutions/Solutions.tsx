@@ -42,38 +42,47 @@ export default function Solutions({ onNavigate }: SolutionsProps) {
 
   const colorClasses = {
     blue: {
-      bg: 'from-blue-50 to-cyan-50',
-      icon: 'bg-blue-600',
-      button: 'bg-blue-600 hover:bg-blue-700',
-      border: 'border-blue-100'
+      // slightly darker card gradients for higher contrast
+      bg: 'from-blue-100 to-cyan-100',
+      icon: 'bg-blue-700',
+      buttonBg: 'bg-white',
+      buttonText: 'text-gray-900',
+      border: 'border-gray-200',
+      check: 'text-blue-700'
     },
     green: {
-      bg: 'from-green-50 to-emerald-50',
-      icon: 'bg-green-600',
-      button: 'bg-green-600 hover:bg-green-700',
-      border: 'border-green-100'
+      bg: 'from-green-100 to-emerald-100',
+      icon: 'bg-green-700',
+      buttonBg: 'bg-white',
+      buttonText: 'text-gray-900',
+      border: 'border-gray-200',
+      check: 'text-green-700'
     },
     orange: {
-      bg: 'from-orange-50 to-amber-50',
-      icon: 'bg-orange-600',
-      button: 'bg-orange-600 hover:bg-orange-700',
-      border: 'border-orange-100'
+      bg: 'from-orange-100 to-amber-100',
+      icon: 'bg-amber-700',
+      buttonBg: 'bg-white',
+      buttonText: 'text-gray-900',
+      border: 'border-gray-200',
+      check: 'text-amber-700'
     },
     purple: {
-      bg: 'from-purple-50 to-pink-50',
-      icon: 'bg-purple-600',
-      button: 'bg-purple-600 hover:bg-purple-700',
-      border: 'border-purple-100'
+      bg: 'from-purple-100 to-pink-100',
+      icon: 'bg-purple-700',
+      buttonBg: 'bg-white',
+      buttonText: 'text-gray-900',
+      border: 'border-gray-200',
+      check: 'text-purple-700'
     }
   };
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="bg-gradient-to-br from-slate-900 to-blue-900 text-white py-20">
+  <section className="bg-gradient-to-br from-slate-900 to-amber-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-5xl font-bold mb-6">Tailored Staffing Solutions</h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl text-amber-100 leading-relaxed">
               From permanent placements to flexible contract staffing, we provide comprehensive
               recruitment solutions designed to meet your unique business challenges and accelerate growth.
             </p>
@@ -81,7 +90,7 @@ export default function Solutions({ onNavigate }: SolutionsProps) {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+  <section className="py-20 subsection-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
             {solutions.map((solution, index) => {
@@ -91,32 +100,32 @@ export default function Solutions({ onNavigate }: SolutionsProps) {
               return (
                 <div
                   key={index}
-                  className={`bg-gradient-to-br ${colors.bg} rounded-2xl p-8 lg:p-12 border ${colors.border}`}
+                  className={`rounded-2xl p-8 lg:p-12 border ${colors.border} bg-gradient-to-br ${colors.bg} shadow-sm relative overflow-hidden`}
                 >
-                  <div className="grid lg:grid-cols-2 gap-8 items-start">
+                  {/* subtle dark overlay to reduce brightness */}
+                  <div className="absolute inset-0 bg-black/8 pointer-events-none rounded-2xl" />
+                  <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-start">
                     <div>
-                      <div className={`w-16 h-16 ${colors.icon} rounded-xl flex items-center justify-center mb-6`}>
+                      <div className={`w-16 h-16 ${colors.icon} rounded-xl flex items-center justify-center mb-6 shadow`}> 
                         <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <h2 className="text-3xl font-bold text-gray-900 mb-4">{solution.title}</h2>
-                      <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                        {solution.description}
-                      </p>
+                      <h2 className="text-3xl font-bold mb-4 text-gray-900">{solution.title}</h2>
+                      <p className="text-lg text-gray-900 leading-relaxed mb-6">{solution.description}</p>
                       <button
                         onClick={() => onNavigate(solution.path)}
-                        className={`${colors.button} text-white px-6 py-3 rounded-lg font-semibold transition-colors flex items-center space-x-2`}
+                        className={`${colors.buttonBg} ${colors.buttonText} px-6 py-3 rounded-lg font-semibold transition-colors flex items-center space-x-2 border border-white/10`}
                       >
                         <span>Learn More</span>
                         <ArrowRight className="w-5 h-5" />
                       </button>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
+                      <h3 className="text-xl font-bold mb-4 text-gray-900">Key Features</h3>
                       <div className="space-y-3">
                         {solution.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center space-x-3">
-                            <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
-                            <span className="text-gray-700">{feature}</span>
+                            <CheckCircle2 className={`w-5 h-5 ${colors.check} flex-shrink-0`} />
+                            <span className="text-gray-900 font-medium">{feature}</span>
                           </div>
                         ))}
                       </div>
@@ -129,15 +138,13 @@ export default function Solutions({ onNavigate }: SolutionsProps) {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 subsection-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Transform Your Hiring?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Let's discuss how our solutions can address your specific staffing needs
-          </p>
+          <h2 className="text-4xl font-bold mb-6 glow text-amber-300">Ready to Transform Your Hiring?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-amber-100">Let's discuss how our solutions can address your specific staffing needs</p>
           <button
             onClick={() => onNavigate('/opportunities/submit')}
-            className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="px-8 py-4 bg-gradient-to-r from-amber-600 to-yellow-500 text-gray-900 rounded-lg font-semibold hover:from-amber-700 hover:to-yellow-600 transition-colors"
           >
             Get in Touch
           </button>
