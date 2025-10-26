@@ -41,10 +41,11 @@ export default function Footer({ onNavigate }: FooterProps) {
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/solutions/contract')} className="hover:text-blue-400 transition-colors">
-                  Contract Staffing
+                <button onClick={() => onNavigate('/solutions/contingent')} className="hover:text-blue-400 transition-colors">
+                  Contingent Staffing
                 </button>
               </li>
+              
               <li>
                 <button onClick={() => onNavigate('/solutions/executive')} className="hover:text-blue-400 transition-colors">
                   Executive Search

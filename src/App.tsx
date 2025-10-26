@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Solutions from './pages/solutions/Solutions';
 import Permanent from './pages/solutions/Permanent';
-import Contract from './pages/solutions/Contract';
 import Executive from './pages/solutions/Executive';
+import Contingent from './pages/solutions/Contingent';
 import RPO from './pages/solutions/RPO';
 import Industry from './pages/industry/Industry';
 import Technology from './pages/industry/Technology';
@@ -28,26 +28,49 @@ import JobSeekers from './pages/opportunities/JobSeekers';
 import Openings from './pages/opportunities/Openings';
 import Submit from './pages/opportunities/Submit';
 import About from './pages/About';
-import AnimatedPage from './components/AnimatedPage';
+// AnimatedPage removed — render pages directly
 
 function App() {
-  const [currentPath, setCurrentPath] = useState('/');
+  const [currentPath, setCurrentPath] = useState(() =>
+    typeof window !== 'undefined' && window.location && window.location.pathname
+      ? window.location.pathname
+      : '/'
+  );
 
   const handleNavigate = (path: string) => {
+    // push the new URL so direct linking and browser history work
+    if (typeof window !== 'undefined' && window.history && window.history.pushState) {
+      try {
+        window.history.pushState({}, '', path);
+      } catch {
+        // fallback: ignore pushState errors
+      }
+    }
+
     setCurrentPath(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // listen for browser navigation (back/forward)
+  useEffect(() => {
+    const onPop = () => {
+      if (typeof window !== 'undefined') setCurrentPath(window.location.pathname || '/');
+    };
+
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   const renderPage = () => {
     switch (currentPath) {
       case '/':
         return <Home onNavigate={handleNavigate} />;
       case '/solutions':
-        return <Solutions onNavigate={handleNavigate} />;
+        return <Solutions />;
       case '/solutions/permanent':
         return <Permanent onNavigate={handleNavigate} />;
-      case '/solutions/contract':
-        return <Contract onNavigate={handleNavigate} />;
+      case '/solutions/contingent':
+        return <Contingent onNavigate={handleNavigate} />;
       case '/solutions/executive':
         return <Executive onNavigate={handleNavigate} />;
       case '/solutions/rpo':
@@ -103,15 +126,10 @@ function App() {
     <div className="min-h-screen bg-white">
       <Navigation currentPath={currentPath} onNavigate={handleNavigate} />
       <main>
-        <AnimatedPage key={currentPath} className="vibrant" palette={
-          currentPath.startsWith('/solutions') ? 'sunset' :
-          currentPath.startsWith('/industry') ? 'edge' :
-          currentPath.startsWith('/insights') ? 'quantum' :
-          currentPath.startsWith('/opportunities') ? 'sunset' :
-          currentPath === '/' ? 'ai' : 'default'
-        }>
+        {/* Render pages directly (AnimatedPage removed) */}
+        <div className="page-container">
           {renderPage()}
-        </AnimatedPage>
+        </div>
       </main>
       <Footer onNavigate={handleNavigate} />
     </div>

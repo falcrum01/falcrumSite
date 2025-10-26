@@ -11,9 +11,9 @@ const navItems: NavItem[] = [
   {
     name: 'Solutions',
     path: '/solutions',
-    subPages: [
+      subPages: [
       { name: 'Permanent Staffing', path: '/solutions/permanent' },
-      { name: 'Contract Staffing', path: '/solutions/contract' },
+      { name: 'Contingent Staffing', path: '/solutions/contingent' },
       { name: 'Executive Search', path: '/solutions/executive' },
       { name: 'RPO Services', path: '/solutions/rpo' }
     ]
@@ -117,7 +117,8 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
             ))}
             <button
               onClick={() => onNavigate('/opportunities/submit')}
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg text-sm font-medium hover:from-purple-700 hover:to-purple-800 transition-colors"
+              className="ml-4 px-6 py-2 bg-gradient-to-r from-emerald-500 to-emerald-700 text-white rounded-lg text-sm font-medium hover:from-emerald-600 hover:to-emerald-800 transition-colors shadow-md ring-1 ring-emerald-200/20"
+              style={{ boxShadow: '0 6px 18px rgba(16,185,129,0.18)' }}
             >
               Get Started
             </button>
@@ -181,7 +182,8 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
                 onNavigate('/opportunities/submit');
                 setMobileMenuOpen(false);
               }}
-              className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg text-sm font-medium hover:from-purple-700 hover:to-purple-800 transition-colors"
+              className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-700 text-white rounded-lg text-sm font-medium hover:from-emerald-600 hover:to-emerald-800 transition-colors shadow-md ring-1 ring-emerald-200/20"
+              style={{ boxShadow: '0 6px 18px rgba(16,185,129,0.18)' }}
             >
               Get Started
             </button>

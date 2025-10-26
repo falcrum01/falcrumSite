@@ -29,6 +29,75 @@
 	.subsection-dark button {
 		@apply ring-1 ring-white/10;
 	}
+
+	/* Hero edge decoration animations */
+
+	@keyframes floatY {
+		0% { transform: translateY(0); }
+		50% { transform: translateY(-10px); }
+		100% { transform: translateY(0); }
+	}
+
+	@keyframes neonPulse {
+		0% { opacity: 0.35; filter: drop-shadow(0 0 6px rgba(96,165,250,0.35)); }
+		50% { opacity: 0.85; filter: drop-shadow(0 0 14px rgba(96,165,250,0.9)); }
+		100% { opacity: 0.35; filter: drop-shadow(0 0 6px rgba(96,165,250,0.35)); }
+	}
+
+	@keyframes dash {
+		to { stroke-dashoffset: 0; }
+	}
+
+	.float-slow {
+		animation: floatY 8s ease-in-out infinite;
+		transform-origin: center;
+	}
+
+	.pulse-neon {
+		animation: neonPulse 2.8s ease-in-out infinite;
+	}
+
+	.dash {
+		stroke-dasharray: 60;
+		stroke-dashoffset: 60;
+		animation: dash 3.6s linear infinite;
+	}
+
+	/* additional decorative animations */
+	@keyframes rotateSlow {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+
+	@keyframes scan {
+		0% { background-position: 0 0; }
+		100% { background-position: 0 200%; }
+	}
+
+	.rotate-slow { animation: rotateSlow 32s linear infinite; transform-origin: center; }
+
+	.scanline {
+		background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 6px);
+		background-size: 100% 12px;
+		animation: scan 6s linear infinite;
+		mix-blend-mode: overlay;
+	}
+
+	.holo {
+		width: 220px;
+		height: 120px;
+		border-radius: 12px;
+		background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(14,165,233,0.08));
+		backdrop-filter: blur(6px);
+		box-shadow: 0 8px 30px rgba(14,165,233,0.06);
+		border: 1px solid rgba(255,255,255,0.03);
+		animation: neonPulse 3.2s ease-in-out infinite;
+	}
+
+	.particle-field { position: absolute; inset: 0; }
+	.particle { position: absolute; width: 6px; height: 6px; border-radius: 9999px; background: rgba(125,211,252,0.9); box-shadow: 0 0 8px rgba(125,211,252,0.7); opacity: 0.9; transform: translateZ(0); animation: floatY 6s ease-in-out infinite; }
+	.particle.slow { animation-duration: 9s; }
+	.particle.fast { animation-duration: 4.6s; }
 }
 
 

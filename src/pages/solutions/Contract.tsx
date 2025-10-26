@@ -7,7 +7,7 @@ interface ContractProps {
 export default function Contract({ onNavigate }: ContractProps) {
   return (
     <div className="min-h-screen pt-20">
-      <section className="bg-gradient-to-br from-green-900 to-emerald-700 text-white py-20">
+  <section className="bg-emerald-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-3 mb-6">
             <Briefcase className="w-12 h-12" />
@@ -156,7 +156,7 @@ export default function Contract({ onNavigate }: ContractProps) {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-purple-800 to-purple-900 text-white">
+  <section className="py-20 bg-gradient-to-br from-emerald-700 to-emerald-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Need Flexible Staffing?</h2>
           <p className="text-xl text-purple-200 mb-8">
@@ -164,7 +164,7 @@ export default function Contract({ onNavigate }: ContractProps) {
           </p>
           <button
             onClick={() => onNavigate('/opportunities/submit')}
-            className="px-8 py-4 bg-white text-purple-800 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="px-8 py-4 bg-white text-emerald-800 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Get Started
           </button>

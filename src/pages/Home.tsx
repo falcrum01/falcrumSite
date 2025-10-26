@@ -13,81 +13,211 @@ export default function Home({ onNavigate }: HomeProps) {
     const canvasEl = canvasRef.current;
     if (!canvasEl) return;
 
-    // Three.js setup (neural particle field)
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1e1b4b);
+    // Safe setup with try/catch for environments without WebGL
+    let renderer: THREE.WebGLRenderer | null = null;
+    let animationId: number | null = null;
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    canvasEl.appendChild(renderer.domElement);
+    try {
+      // Three.js setup — futuristic world background (globe + neon grid + floaters)
+      const scene = new THREE.Scene();
+      // keep background transparent so hero gradients show through
+      scene.background = null;
 
-    // Create particles for neural network nodes
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 300;
-    const posArray = new Float32Array(particlesCount * 3);
-    for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 18;
-    }
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.12,
-      color: 0x60a5fa, // soft blue
-      transparent: true,
-      opacity: 0.9,
-      blending: THREE.AdditiveBlending
-    });
-
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-
-    // subtle linking lines (geometry + line segments)
-    const linesMaterial = new THREE.LineBasicMaterial({ color: 0x38bdf8, opacity: 0.08, transparent: true });
-    const positions = particlesGeometry.getAttribute('position').array as Float32Array;
-    const lineGeom = new THREE.BufferGeometry();
-    const connections: number[] = [];
-    for (let i = 0; i < particlesCount; i += 6) {
-      const i3 = i * 3;
-      const x = positions[i3];
-      const y = positions[i3 + 1];
-      const z = positions[i3 + 2];
-      const j = (i + 3) % particlesCount;
-      const j3 = j * 3;
-      connections.push(x, y, z, positions[j3], positions[j3 + 1], positions[j3 + 2]);
-    }
-    lineGeom.setAttribute('position', new THREE.BufferAttribute(new Float32Array(connections), 3));
-    const lines = new THREE.LineSegments(lineGeom, linesMaterial);
-    scene.add(lines);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.45);
-    scene.add(ambientLight);
-
-    camera.position.z = 10;
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-      const t = Date.now() * 0.00015; // slower time factor
-      // reduce motion amplitude for a calmer visual
-      particlesMesh.rotation.x = Math.sin(t) * 0.02;
-      particlesMesh.rotation.y = Math.cos(t) * 0.02;
-      lines.rotation.y = particlesMesh.rotation.y * 0.35;
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
+      const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-    window.addEventListener('resize', handleResize);
+      canvasEl.appendChild(renderer.domElement);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      renderer.dispose();
-      if (canvasEl.contains(renderer.domElement)) canvasEl.removeChild(renderer.domElement);
-    };
+      // Lights
+      const hemi = new THREE.HemisphereLight(0xffffff, 0x080820, 0.6);
+      scene.add(hemi);
+      const point = new THREE.PointLight(0x66f6ff, 1.2, 50);
+      point.position.set(5, 10, 10);
+      scene.add(point);
+
+      // Rotating wireframe globe (low-poly) to suggest a futuristic world
+      const globeGeom = new THREE.IcosahedronGeometry(3.2, 3);
+      const globeMat = new THREE.MeshStandardMaterial({
+        color: 0x0ea5e9,
+        emissive: 0x0b84c7,
+        metalness: 0.1,
+        roughness: 0.2,
+        transparent: true,
+        opacity: 0.85
+      });
+      const globe = new THREE.Mesh(globeGeom, globeMat);
+      // wireframe overlay
+      const edgeGeom = new THREE.EdgesGeometry(globeGeom);
+      const edgeMat = new THREE.LineBasicMaterial({ color: 0x7dd3fc, linewidth: 1, transparent: true, opacity: 0.6 });
+      const globeWire = new THREE.LineSegments(edgeGeom, edgeMat);
+      const globeGroup = new THREE.Group();
+      globeGroup.add(globe);
+      globeGroup.add(globeWire);
+      globeGroup.position.set(-1.5, 0.5, -2);
+      scene.add(globeGroup);
+
+      // Neon grid plane
+      const gridSize = 40;
+      const gridGeom = new THREE.PlaneGeometry(gridSize, gridSize, 80, 80);
+      const gridMat = new THREE.LineBasicMaterial({ color: 0x0ea5e9, transparent: true, opacity: 0.06 });
+      const gridWire = new THREE.LineSegments(new THREE.WireframeGeometry(gridGeom), gridMat);
+      gridWire.rotation.x = -Math.PI / 2;
+      gridWire.position.y = -3.6;
+      scene.add(gridWire);
+
+      // Floating neon boxes
+      const floaters: THREE.Mesh[] = [];
+      const boxGeom = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+      for (let i = 0; i < 8; i++) {
+        const mat = new THREE.MeshStandardMaterial({ color: 0x60a5fa, emissive: 0x114b8b, roughness: 0.3, metalness: 0.6 });
+        const m = new THREE.Mesh(boxGeom, mat);
+        m.position.set((Math.random() - 0.5) * 12, Math.random() * 4 - 1, (Math.random() - 0.5) * 8);
+        m.rotation.set(Math.random(), Math.random(), Math.random());
+        scene.add(m);
+        floaters.push(m);
+      }
+
+      // 3D cubic grid (instanced) — fills the hero with many small cubes that rotate/float
+      let cubeInstanced: THREE.InstancedMesh | null = null;
+      const tempObj = new THREE.Object3D();
+      const cubeInfos: { x: number; y: number; z: number; speed: number; phase: number; rotSpeed: number }[] = [];
+      try {
+        const gridX = 14;
+        const gridY = 6;
+        const layers = 3; // depth layers
+        const count = gridX * gridY * layers;
+
+        const instGeom = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+        const instMat = new THREE.MeshStandardMaterial({ color: 0x34d399, emissive: 0x065f46, roughness: 0.25, metalness: 0.6, transparent: true, opacity: 0.85 });
+        cubeInstanced = new THREE.InstancedMesh(instGeom, instMat, count);
+        cubeInstanced.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+
+        const spacingX = 0.9;
+        const spacingY = 0.9;
+        const startX = -((gridX - 1) * spacingX) / 2;
+        const startY = -1.4;
+        const startZ = -3.5;
+
+        let idx = 0;
+        for (let l = 0; l < layers; l++) {
+          for (let ix = 0; ix < gridX; ix++) {
+            for (let iy = 0; iy < gridY; iy++) {
+              const x = startX + ix * spacingX + (l - (layers - 1) / 2) * 0.15;
+              const y = startY + iy * spacingY * 0.55 + (Math.random() - 0.5) * 0.15;
+              const z = startZ + l * 1.2 + (Math.random() - 0.5) * 0.6;
+              const speed = 0.6 + Math.random() * 1.2;
+              const phase = Math.random() * Math.PI * 2;
+              const rotSpeed = 0.2 + Math.random() * 1.2;
+              cubeInfos.push({ x, y, z, speed, phase, rotSpeed });
+
+              tempObj.position.set(x, y, z);
+              tempObj.rotation.set(Math.random(), Math.random(), Math.random());
+              tempObj.updateMatrix();
+              cubeInstanced.setMatrixAt(idx, tempObj.matrix);
+              idx++;
+            }
+          }
+        }
+
+        cubeInstanced.scale.setScalar(1);
+        cubeInstanced.castShadow = false;
+        cubeInstanced.receiveShadow = false;
+        scene.add(cubeInstanced);
+      } catch (e) {
+        // if instancing fails, ignore to keep the page running
+        console.warn('cube instancing failed', e);
+      }
+
+      camera.position.set(0, 0.6, 9);
+
+      const animate = () => {
+        animationId = window.requestAnimationFrame(animate);
+        const t = Date.now() * 0.0005;
+        // globe slow rotation
+        globeGroup.rotation.y = t * 0.15;
+        globeGroup.rotation.x = Math.sin(t * 0.3) * 0.05;
+        // floaters bob
+        floaters.forEach((f, idx) => {
+          f.position.y += Math.sin(t * 1.2 + idx) * 0.006;
+          f.rotation.x += 0.006 + idx * 0.0015;
+          f.rotation.y += 0.008 + idx * 0.0017;
+        });
+        // animate instanced cubes (if present)
+        if (cubeInstanced) {
+          for (let i = 0; i < cubeInfos.length; i++) {
+            const info = cubeInfos[i];
+            const px = info.x;
+            const py = info.y + Math.sin(t * info.speed + info.phase) * 0.45;
+            const pz = info.z + Math.cos(t * info.speed * 0.7 + info.phase) * 0.25;
+            tempObj.position.set(px, py, pz);
+            // rotate more dynamically
+            tempObj.rotation.set(t * info.rotSpeed, t * info.rotSpeed * 0.7, Math.sin(t * info.speed + info.phase) * 0.4);
+            tempObj.scale.setScalar(0.9 + Math.sin(t * info.speed + info.phase) * 0.08);
+            tempObj.updateMatrix();
+            cubeInstanced.setMatrixAt(i, tempObj.matrix);
+          }
+          cubeInstanced.instanceMatrix.needsUpdate = true;
+        }
+        if (renderer) renderer.render(scene, camera);
+      };
+      animate();
+
+      const handleResize = () => {
+        if (!renderer) return;
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      };
+      window.addEventListener('resize', handleResize);
+
+      // cleanup
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        if (animationId) cancelAnimationFrame(animationId);
+        // dispose floaters
+        floaters.forEach((f) => {
+          (f.geometry as THREE.BufferGeometry & { dispose?: () => void }).dispose?.();
+          (f.material as THREE.Material & { dispose?: () => void }).dispose?.();
+          scene.remove(f);
+        });
+        // dispose grid
+  (gridGeom as THREE.BufferGeometry & { dispose?: () => void }).dispose?.();
+  (gridMat as THREE.Material & { dispose?: () => void }).dispose?.();
+        scene.remove(gridWire);
+        // dispose globe
+  (globeGeom as THREE.BufferGeometry & { dispose?: () => void }).dispose?.();
+  (globeMat as THREE.Material & { dispose?: () => void }).dispose?.();
+  (edgeGeom as THREE.BufferGeometry & { dispose?: () => void }).dispose?.();
+  (edgeMat as THREE.Material & { dispose?: () => void }).dispose?.();
+        scene.remove(globeGroup);
+        // dispose instanced cubes
+        try {
+          if (cubeInstanced) {
+            (cubeInstanced.geometry as THREE.BufferGeometry & { dispose?: () => void }).dispose?.();
+            ((cubeInstanced.material as THREE.Material) as THREE.Material & { dispose?: () => void }).dispose?.();
+            scene.remove(cubeInstanced);
+          }
+        } catch {
+          // ignore disposal errors
+        }
+        // dispose lights
+        scene.remove(hemi);
+        scene.remove(point);
+        // dispose renderer
+        if (renderer) {
+          renderer.dispose();
+          if (renderer.domElement && canvasEl.contains(renderer.domElement)) canvasEl.removeChild(renderer.domElement);
+        }
+      };
+    } catch (err) {
+      // fail silently if WebGL is not available — avoid throwing at runtime
+      console.warn('Three.js initialization failed:', err);
+      if (renderer && canvasEl.contains(renderer.domElement)) canvasEl.removeChild(renderer.domElement);
+      return;
+    }
+
+    // cleanup is handled inside the try/catch return path above; nothing to do here
   }, []);
 
   return (
@@ -97,9 +227,97 @@ export default function Home({ onNavigate }: HomeProps) {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-blue-800 to-gray-900 text-white pt-32 pb-20 overflow-hidden">
+        {/* subtle dark overlay to slightly deepen the background */}
+        <div className="absolute inset-0 bg-black/30 pointer-events-none z-0" />
+
+        {/* left & right futuristic neon edge decorations (behind content) */}
+        <div className="absolute inset-y-0 left-0 w-56 pointer-events-none z-10 flex items-center justify-start">
+          <svg viewBox="0 0 120 600" className="w-full h-full opacity-40 blur-sm mix-blend-screen float-slow" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0%" stopColor="#34d399" stopOpacity="0.0" />
+                <stop offset="60%" stopColor="#06b6d4" stopOpacity="0.9" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="120" height="600" fill="url(#g1)" />
+            <g className="pulse-neon" stroke="#7dd3fc" strokeWidth="1.4" fill="none" strokeLinecap="round">
+              <path className="dash" d="M20 40 L20 120" strokeOpacity="0.7" />
+              <path className="dash" d="M20 160 L20 260" strokeOpacity="0.6" />
+              <path className="dash" d="M20 300 L20 420" strokeOpacity="0.5" />
+              <path className="dash" d="M40 80 L80 80 L80 100" strokeOpacity="0.5" />
+              <circle className="pulse-neon" cx="20" cy="40" r="3" fill="#34d399" stroke="none" />
+              <circle className="pulse-neon" cx="20" cy="160" r="2.5" fill="#06b6d4" stroke="none" />
+              <circle className="pulse-neon" cx="20" cy="300" r="2" fill="#7dd3fc" stroke="none" />
+            </g>
+          </svg>
+        </div>
+
+        <div className="absolute inset-y-0 right-0 w-56 pointer-events-none z-10 flex items-center justify-end">
+          <svg viewBox="0 0 120 600" className="w-full h-full opacity-40 blur-sm mix-blend-screen float-slow" style={{ animationDelay: '1.2s' }} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="g2" x1="0" x2="1">
+                <stop offset="0%" stopColor="#34d399" stopOpacity="0.0" />
+                <stop offset="60%" stopColor="#06b6d4" stopOpacity="0.9" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="120" height="600" fill="url(#g2)" />
+            <g className="pulse-neon" stroke="#86efac" strokeWidth="1.2" fill="none" strokeLinecap="round">
+              <path className="dash" d="M20 40 L20 120" strokeOpacity="0.7" />
+              <path className="dash" d="M20 160 L20 260" strokeOpacity="0.6" />
+              <path className="dash" d="M20 300 L20 420" strokeOpacity="0.5" />
+              <path className="dash" d="M40 80 L80 80 L80 100" strokeOpacity="0.5" />
+              <circle className="pulse-neon" cx="20" cy="40" r="3" fill="#34d399" stroke="none" />
+              <circle className="pulse-neon" cx="20" cy="160" r="2.5" fill="#06b6d4" stroke="none" />
+              <circle className="pulse-neon" cx="20" cy="300" r="2" fill="#7dd3fc" stroke="none" />
+            </g>
+          </svg>
+        </div>
+
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[size:24px_24px] opacity-20"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(30,64,175,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(30,64,175,0.1)_1px,transparent_1px)] bg-[size:14px_14px] opacity-15"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* additional decorative elements: scanlines, rotating ring, holographic panel, particle field */}
+        <div className="absolute inset-0 pointer-events-none z-15">
+          <div className="absolute inset-0 scanline" />
+
+          <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-30">
+            <svg viewBox="0 0 200 200" className="w-full h-full rotate-slow" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.25" />
+                  <stop offset="70%" stopColor="#06b6d4" stopOpacity="0.06" />
+                  <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="100" cy="100" r="80" fill="none" stroke="#60a5fa" strokeWidth="0.6" opacity="0.12" />
+              <circle cx="100" cy="100" r="60" fill="none" stroke="#06b6d4" strokeWidth="1" opacity="0.08" />
+              <circle cx="100" cy="100" r="40" fill="url(#rg)" />
+            </svg>
+          </div>
+
+          <div className="absolute top-8 right-8 holo" />
+
+          <div className="particle-field">
+            {[
+              { left: '6%', top: '22%', cls: 'particle slow' },
+              { left: '18%', top: '48%', cls: 'particle' },
+              { left: '30%', top: '12%', cls: 'particle fast' },
+              { left: '46%', top: '62%', cls: 'particle slow' },
+              { left: '52%', top: '28%', cls: 'particle' },
+              { left: '64%', top: '50%', cls: 'particle fast' },
+              { left: '74%', top: '18%', cls: 'particle' },
+              { left: '84%', top: '44%', cls: 'particle slow' },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className={p.cls}
+                style={{ left: p.left, top: p.top }}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="relative inline-block">

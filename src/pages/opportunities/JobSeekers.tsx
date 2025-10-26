@@ -19,7 +19,7 @@ export default function JobSeekers({ onNavigate }: JobSeekersProps) {
 
       <section className="py-20 subsection-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center glow">How We Help You Succeed</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center glow !text-black">How We Help You Succeed</h2>
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-white/10">
               <UserCheck className="w-12 h-12 text-white mb-4" />
