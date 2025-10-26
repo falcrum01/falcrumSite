@@ -56,7 +56,7 @@ export default function Blog() {
     <div className="min-h-screen pt-20">
       <section className="bg-gradient-to-br from-blue-900 to-cyan-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-bold mb-6">Falcrum Technology Blog</h1>
+          <h1 className="text-5xl font-bold mb-6">Fulcrum Technology Blog</h1>
           <p className="text-xl text-blue-100 max-w-3xl leading-relaxed">
             Expert insights, practical tips, and industry perspectives to help you hire smarter.
           </p>

@@ -7,13 +7,13 @@ interface ExecutiveProps {
 export default function Executive({ onNavigate }: ExecutiveProps) {
   return (
     <div className="min-h-screen pt-20">
-      <section className="bg-gradient-to-br from-orange-900 to-amber-700 text-white py-20">
+  <section className="bg-gradient-to-br from-[#0b0b0d] via-[#111113] to-[#000000] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center space-x-3 mb-6">
             <Target className="w-12 h-12" />
             <h1 className="text-5xl font-bold">Executive Search</h1>
           </div>
-          <p className="text-xl text-orange-100 max-w-3xl leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
             Identify and attract transformational leaders who will drive your organization forward.
             Our executive search practice specializes in C-suite and senior leadership placements.
           </p>
@@ -32,28 +32,28 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
               </p>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-gray-300 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Confidential Search</h3>
                     <p className="text-gray-600">Discrete recruitment protecting both organization and candidate privacy</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-gray-300 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Market Mapping</h3>
                     <p className="text-gray-600">Comprehensive analysis of executive talent across your industry</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-gray-300 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Leadership Assessment</h3>
                     <p className="text-gray-600">In-depth evaluation of strategic thinking, cultural fit, and track record</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-gray-300 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Succession Planning</h3>
                     <p className="text-gray-600">Long-term strategy development for critical leadership roles</p>
@@ -61,11 +61,11 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                 </div>
               </div>
             </div>
-            <div className="bg-orange-50 rounded-2xl p-8 border border-orange-100">
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Executive Roles We Fill</h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Crown className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -74,7 +74,7 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -83,7 +83,7 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Lock className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -98,8 +98,8 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
           <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Executive Search Process</h2>
             <div className="space-y-6">
-              <div className="flex items-start space-x-6">
-                <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                <div className="flex items-start space-x-6">
+                <div className="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
                   1
                 </div>
                 <div>
@@ -111,7 +111,7 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                 </div>
               </div>
               <div className="flex items-start space-x-6">
-                <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                <div className="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
                   2
                 </div>
                 <div>
@@ -123,7 +123,7 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                 </div>
               </div>
               <div className="flex items-start space-x-6">
-                <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                <div className="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
                   3
                 </div>
                 <div>
@@ -135,7 +135,7 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                 </div>
               </div>
               <div className="flex items-start space-x-6">
-                <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
+                <div className="w-12 h-12 bg-gray-600 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">
                   4
                 </div>
                 <div>
@@ -151,15 +151,15 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
         </div>
       </section>
 
-      <section className="py-20 bg-orange-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-[#0b0b0d] to-[#000000] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Find Your Next Leader</h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-gray-300 mb-8">
             Let's discuss your executive search needs in complete confidence
           </p>
           <button
             onClick={() => onNavigate('/opportunities/submit')}
-            className="px-8 py-4 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Schedule a Confidential Consultation
           </button>

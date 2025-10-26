@@ -11,7 +11,7 @@ export default function JobSeekers({ onNavigate }: JobSeekersProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">Advance Your Career</h1>
           <p className="text-xl text-blue-100 max-w-3xl leading-relaxed">
-            Partner with Falcrum Technology to unlock opportunities, receive expert guidance, and find
+            Partner with Fulcrum Technology to unlock opportunities, receive expert guidance, and find
             the perfect role that matches your skills and aspirations.
           </p>
         </div>
@@ -55,14 +55,14 @@ export default function JobSeekers({ onNavigate }: JobSeekersProps) {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 lg:p-12 text-center border border-white/10">
-            <h2 className="text-3xl font-bold mb-6 text-gray-100">Ready to Get Started?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <div className="bg-gradient-to-br from-purple-800 to-purple-900 rounded-2xl p-8 lg:p-12 text-center border border-white/10">
+            <h2 className="text-3xl font-bold mb-6 text-white">Ready to Get Started?</h2>
+            <p className="text-xl text-purple-200 mb-8 max-w-2xl mx-auto">
               Submit your resume today and let our expert recruiters connect you with your next opportunity
             </p>
             <button
               onClick={() => onNavigate('/opportunities/submit')}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-700 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-800 transition-colors"
+              className="px-8 py-4 bg-white text-purple-800 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Submit Your Resume
             </button>

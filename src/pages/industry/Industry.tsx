@@ -111,15 +111,15 @@ export default function Industry({ onNavigate }: IndustryProps) {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-purple-800 to-purple-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Find Top Talent?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6">Ready to Find Top Talent?</h2>
+          <p className="text-xl text-purple-200 mb-8 max-w-2xl mx-auto">
             Connect with our industry specialists to discuss your specific hiring needs
           </p>
           <button
             onClick={() => onNavigate('/opportunities/submit')}
-            className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="px-8 py-4 bg-white text-purple-800 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Get Started
           </button>

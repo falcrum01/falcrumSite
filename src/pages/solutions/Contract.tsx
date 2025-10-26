@@ -156,15 +156,15 @@ export default function Contract({ onNavigate }: ContractProps) {
         </div>
       </section>
 
-      <section className="py-20 bg-green-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-purple-800 to-purple-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Need Flexible Staffing?</h2>
-          <p className="text-xl text-green-100 mb-8">
+          <p className="text-xl text-purple-200 mb-8">
             Contact us today to discuss your contract staffing requirements
           </p>
           <button
             onClick={() => onNavigate('/opportunities/submit')}
-            className="px-8 py-4 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="px-8 py-4 bg-white text-purple-800 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Get Started
           </button>

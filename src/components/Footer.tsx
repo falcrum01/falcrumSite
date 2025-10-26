@@ -14,7 +14,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-800 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">F</span>
               </div>
-              <span className="text-2xl font-bold text-white">Falcrum Technology</span>
+              <span className="text-2xl font-bold text-white">Fulcrum Technology</span>
             </div>
             <p className="text-sm leading-relaxed">
               Connecting exceptional talent with outstanding opportunities across the United States.
@@ -97,14 +97,14 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-indigo-400 flex-shrink-0" />
-                <span>info@falcrumtechnology.com</span>
+                <span>info@fulcrumtechnology.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
-          <p>&copy; 2025 Falcrum Technology. All rights reserved.</p>
+          <p>&copy; 2025 Fulcrum Technology. All rights reserved.</p>
         </div>
       </div>
     </footer>

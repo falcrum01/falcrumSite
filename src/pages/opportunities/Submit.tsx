@@ -3,7 +3,7 @@ import { Upload, Mail, Phone, User, FileText, MapPin } from 'lucide-react';
 export default function Submit() {
   return (
     <div className="min-h-screen pt-20">
-      <section className="bg-gradient-to-br from-slate-900 to-indigo-900 text-white py-20">
+      <section className="bg-gradient-to-br from-yellow-900 to-green-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold mb-6">Submit Your Resume</h1>
           <p className="text-xl text-blue-100 max-w-3xl leading-relaxed">
@@ -14,7 +14,7 @@ export default function Submit() {
 
       <section className="py-20 subsection-dark">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 lg:p-12 border border-white/10">
+          <div className="bg-yellow-100 rounded-2xl p-8 lg:p-12 border border-blue/10">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -26,7 +26,7 @@ export default function Submit() {
                     <input
                       type="text"
                       required
-                      className="w-full pl-12 pr-4 py-3 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-indigo-500"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500"
                       placeholder="John"
                     />
                   </div>
@@ -40,7 +40,7 @@ export default function Submit() {
                     <input
                       type="text"
                       required
-                      className="w-full pl-12 pr-4 py-3 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-indigo-500"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500"
                       placeholder="Doe"
                     />
                   </div>
@@ -48,7 +48,7 @@ export default function Submit() {
               </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-100 mb-2">
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Email Address *
                   </label>
                   <div className="relative">
@@ -56,7 +56,7 @@ export default function Submit() {
                     <input
                       type="email"
                       required
-                      className="w-full pl-12 pr-4 py-3 bg-gray-900 text-gray-100 border-2 border-white/10 rounded-lg focus:outline-none focus:border-indigo-500"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500"
                       placeholder="john.doe@example.com"
                     />
                   </div>
@@ -71,7 +71,7 @@ export default function Submit() {
                   <input
                     type="tel"
                     required
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500"
                     placeholder="(555) 123-4567"
                   />
                 </div>
@@ -86,7 +86,7 @@ export default function Submit() {
                   <input
                     type="text"
                     required
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500"
                     placeholder="City, State"
                   />
                 </div>
@@ -98,7 +98,7 @@ export default function Submit() {
                 </label>
                 <input
                   type="text"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500"
                   placeholder="e.g., Software Engineer"
                 />
               </div>
@@ -107,7 +107,7 @@ export default function Submit() {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Years of Experience
                 </label>
-                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500">
+                <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500">
                   <option value="">Select...</option>
                   <option value="0-2">0-2 years</option>
                   <option value="3-5">3-5 years</option>
@@ -137,7 +137,7 @@ export default function Submit() {
                   <FileText className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
                   <textarea
                     rows={4}
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-500"
+                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none"
                     placeholder="Tell us about your career goals and what you're looking for..."
                   ></textarea>
                 </div>
@@ -145,7 +145,7 @@ export default function Submit() {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-700 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-800 transition-colors"
+                className="w-full px-8 py-4 bg-green-900 text-white rounded-lg font-semibold"
               >
                 Submit Application
               </button>

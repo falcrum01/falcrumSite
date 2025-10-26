@@ -17,6 +17,12 @@ import Blog from './pages/insights/Blog';
 import Trends from './pages/insights/Trends';
 import CaseStudies from './pages/insights/CaseStudies';
 import Resources from './pages/insights/Resources';
+import UltimateGuide from './pages/insights/resources/UltimateGuide';
+import SalaryBenchmarkReport from './pages/insights/resources/SalaryBenchmarkReport';
+import InterviewTemplates from './pages/insights/resources/InterviewTemplates';
+import DiversityChecklist from './pages/insights/resources/DiversityChecklist';
+import OnboardingPlaybook from './pages/insights/resources/OnboardingPlaybook';
+import RemoteWorkPolicy from './pages/insights/resources/RemoteWorkPolicy';
 import Opportunities from './pages/opportunities/Opportunities';
 import JobSeekers from './pages/opportunities/JobSeekers';
 import Openings from './pages/opportunities/Openings';
@@ -65,7 +71,19 @@ function App() {
       case '/insights/case-studies':
         return <CaseStudies />;
       case '/insights/resources':
-        return <Resources />;
+        return <Resources onNavigate={handleNavigate} />;
+      case '/insights/resources/ultimate-guide-to-technical-interviews':
+        return <UltimateGuide onNavigate={handleNavigate} />;
+      case '/insights/resources/salary-benchmarking-report-2025':
+        return <SalaryBenchmarkReport onNavigate={handleNavigate} />;
+      case '/insights/resources/interview-question-templates':
+        return <InterviewTemplates onNavigate={handleNavigate} />;
+      case '/insights/resources/diversity-hiring-checklist':
+        return <DiversityChecklist onNavigate={handleNavigate} />;
+      case '/insights/resources/onboarding-best-practices-playbook':
+        return <OnboardingPlaybook onNavigate={handleNavigate} />;
+      case '/insights/resources/remote-work-policy-template':
+        return <RemoteWorkPolicy onNavigate={handleNavigate} />;
       case '/opportunities':
         return <Opportunities onNavigate={handleNavigate} />;
       case '/opportunities/job-seekers':

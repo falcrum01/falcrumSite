@@ -69,7 +69,7 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
               <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-800 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">F</span>
               </div>
-              <span className="text-2xl font-bold text-gray-900">Falcrum Technology</span>
+              <span className="text-2xl font-bold text-gray-900">Fulcrum Technology</span>
             </div>
           </div>
 
@@ -117,7 +117,7 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
             ))}
             <button
               onClick={() => onNavigate('/opportunities/submit')}
-              className="ml-4 px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+              className="ml-4 px-6 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg text-sm font-medium hover:from-purple-700 hover:to-purple-800 transition-colors"
             >
               Get Started
             </button>
@@ -181,7 +181,7 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
                 onNavigate('/opportunities/submit');
                 setMobileMenuOpen(false);
               }}
-              className="w-full mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+              className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg text-sm font-medium hover:from-purple-700 hover:to-purple-800 transition-colors"
             >
               Get Started
             </button>
