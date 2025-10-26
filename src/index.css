@@ -3,3 +3,32 @@
 @tailwind utilities;
 
 
+@layer components {
+	/* Improve contrast for subsection content */
+	.subsection-dark h2,
+	.subsection-dark h3,
+	.subsection-dark h4 {
+		@apply text-white;
+	}
+
+	.subsection-dark p,
+	.subsection-dark li,
+	.subsection-dark span,
+	.subsection-dark a {
+		@apply text-gray-200;
+	}
+
+	/* Make small meta text slightly brighter */
+	.subsection-dark .text-sm,
+	.subsection-dark small {
+		@apply text-gray-300;
+	}
+
+	/* Ensure buttons inside subsections stand out */
+	.subsection-dark .btn,
+	.subsection-dark button {
+		@apply ring-1 ring-white/10;
+	}
+}
+
+

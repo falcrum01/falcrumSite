@@ -61,16 +61,16 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Executive Roles We Fill</h3>
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-black mb-6">Executive Roles We Fill</h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Crown className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">C-Suite Executives</h4>
-                    <p className="text-gray-600 text-sm">CEO, COO, CFO, CTO, CMO, CHRO</p>
+                    <h4 className="font-semibold text-black mb-2">C-Suite Executives</h4>
+                    <p className="text-black text-sm">CEO, COO, CFO, CTO, CMO, CHRO</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -78,8 +78,8 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Senior Leadership</h4>
-                    <p className="text-gray-600 text-sm">VPs, Senior Directors, Division Presidents</p>
+                    <h4 className="font-semibold text-black mb-2">Senior Leadership</h4>
+                    <p className="text-black text-sm">VPs, Senior Directors, Division Presidents</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -87,8 +87,8 @@ export default function Executive({ onNavigate }: ExecutiveProps) {
                     <Lock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Board Members</h4>
-                    <p className="text-gray-600 text-sm">Independent directors, advisors, board chairs</p>
+                    <h4 className="font-semibold text-black mb-2">Board Members</h4>
+                    <p className="text-black text-sm">Independent directors, advisors, board chairs</p>
                   </div>
                 </div>
               </div>

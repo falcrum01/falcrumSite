@@ -177,11 +177,11 @@ export default function Home({ onNavigate }: HomeProps) {
       </section>
 
   {/* AI Specializations Section */}
-  <section className="py-20 subsection-dark">
+  <section className="py-20 subsection-dark bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 glow">AI & Future Tech Expertise</h2>
-            <p className="text-xl max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 glow !text-black">AI & Future Tech Expertise</h2>
+            <p className="text-xl max-w-3xl mx-auto !text-[#0b0b0d]">
               Leading the recruitment revolution with specialized AI talent acquisition across cutting-edge domains
             </p>
           </div>
@@ -189,18 +189,18 @@ export default function Home({ onNavigate }: HomeProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-gray-800 to-gray-800 rounded-xl p-8 border border-white/10 hover:shadow-xl transition-all group card">
               <Brain className="w-14 h-14 text-white mb-6 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold mb-4 glow">Advanced AI Systems</h3>
-              <ul className="space-y-3 text-gray-200">
+              <h3 className="text-xl font-bold mb-4 glow text-black">Advanced AI Systems</h3>
+              <ul className="space-y-3 text-gray-900">
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Large Language Models
                 </li>
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Neural Architecture Design
                 </li>
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Reinforcement Learning
                 </li>
               </ul>
@@ -208,18 +208,18 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <div className="bg-gradient-to-br from-gray-800 to-gray-800 rounded-xl p-8 border border-white/10 hover:shadow-xl transition-all group card">
               <Code className="w-14 h-14 text-white mb-6 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold mb-4 glow">Quantum Computing</h3>
-              <ul className="space-y-3 text-gray-200">
+              <h3 className="text-xl font-bold mb-4 glow text-black">Quantum Computing</h3>
+              <ul className="space-y-3 text-gray-900">
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Quantum Algorithms
                 </li>
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Error Correction
                 </li>
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Quantum ML Integration
                 </li>
               </ul>
@@ -227,18 +227,18 @@ export default function Home({ onNavigate }: HomeProps) {
 
             <div className="bg-gradient-to-br from-gray-800 to-gray-800 rounded-xl p-8 border border-white/10 hover:shadow-xl transition-all group card">
               <Network className="w-14 h-14 text-white mb-6 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-bold mb-4 glow">Edge Computing & IoT</h3>
-              <ul className="space-y-3 text-gray-200">
+              <h3 className="text-xl font-bold mb-4 glow text-black">Edge Computing & IoT</h3>
+              <ul className="space-y-3 text-gray-900">
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Edge AI Development
                 </li>
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   IoT Neural Networks
                 </li>
                 <li className="flex items-center">
-                  <Sparkles className="w-5 h-5 mr-2 text-white" />
+                  <Sparkles className="w-5 h-5 mr-2 text-gray-800" />
                   Distributed Systems
                 </li>
               </ul>
@@ -299,28 +299,28 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-6 glow">Transforming Industries Through AI</h2>
-              <p className="text-lg mb-8 leading-relaxed">
+              <h2 className="text-4xl font-bold mb-6 glow !text-black">Transforming Industries Through AI</h2>
+              <p className="text-lg mb-8 leading-relaxed !text-black">
                 Our AI specialists are driving innovation across sectors, from healthcare diagnostics
                 to climate change solutions. We connect companies with talent that can turn
                 ambitious AI initiatives into reality.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-gray-100">
-                  <Sparkles className="w-6 h-6 text-white" />
-                  <span>Advanced NLP for automated diagnosis</span>
+                <div className="flex items-center space-x-3 !text-black">
+                  <Sparkles className="w-6 h-6 text-black" />
+                  <span className="!text-black">Advanced NLP for automated diagnosis</span>
                 </div>
-                <div className="flex items-center space-x-3 text-gray-100">
-                  <Sparkles className="w-6 h-6 text-white" />
-                  <span>Computer vision for climate monitoring</span>
+                <div className="flex items-center space-x-3 !text-black">
+                  <Sparkles className="w-6 h-6 text-black" />
+                  <span className="!text-black">Computer vision for climate monitoring</span>
                 </div>
-                <div className="flex items-center space-x-3 text-gray-100">
-                  <Sparkles className="w-6 h-6 text-white" />
-                  <span>Quantum algorithms for drug discovery</span>
+                <div className="flex items-center space-x-3 !text-black">
+                  <Sparkles className="w-6 h-6 text-black" />
+                  <span className="!text-black">Quantum algorithms for drug discovery</span>
                 </div>
-                <div className="flex items-center space-x-3 text-gray-100">
-                  <Sparkles className="w-6 h-6 text-white" />
-                  <span>AI-driven renewable energy optimization</span>
+                <div className="flex items-center space-x-3 !text-black">
+                  <Sparkles className="w-6 h-6 text-black" />
+                  <span className="!text-black">AI-driven renewable energy optimization</span>
                 </div>
               </div>
             </div>
